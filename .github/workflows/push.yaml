@@ -17,8 +17,6 @@ jobs:
           git diff --exit-code --no-ext-diff crates/renderling/src/linkage
 
   renderling-clippy:
-    strategy:
-    continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +30,6 @@ jobs:
       fail-fast: false
       matrix:
         label: [pi4, intel, amd]
-    continue-on-error: true
     runs-on: ${{ matrix.label }}
     steps:
       - uses: actions/checkout@v2
